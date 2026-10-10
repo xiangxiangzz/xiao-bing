@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>峡谷邀请函💗</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui;}
+body{
+  min-height:100vh;
+  background: linear-gradient(135deg,#1a1a2e,#16213e);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  text-align:center;
+  padding:20px;
+}
+.card{
+  background:rgba(255,255,255,0.08);
+  padding:40px 30px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.2);
+  max-width:420px;
+}
+h1{font-size:26px;margin-bottom:12px}
+.desc{font-size:16px;opacity:0.85;margin-bottom:32px;}
+.btn-wrap{display:flex;gap:24px;justify-content:center;}
+button{
+  padding:12px 36px;
+  font-size:18px;
+  border:none;
+  border-radius:99px;
+  cursor:pointer;
+  transition:0.2s;
+}
+#yesBtn{background:#ff7eb9;color:white;}
+#noBtn{background:#444;color:#fff;}
+button:hover{transform:scale(1.05)}
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.popup-box{
+  background:#fff;
+  color:#222;
+  padding:32px;
+  border-radius:18px;
+  max-width:380px;
+}
+.popup-box p{font-size:18px;line-height:1.7;margin-bottom:20px;}
+#imgBox img{max-width:220px;border-radius:12px;margin-bottom:16px;}
+.closeBtn{background:#222;color:white;padding:8px 20px;border-radius:99px;margin-top:10px;}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>峡谷邀请函 💗</h1>
+  <p class="desc">是否接受本次峡谷邀约？</p>
+  <div class="btn-wrap">
+    <button id="yesBtn">是</button>
+    <button id="noBtn">否</button>
+  </div>
+</div>
+
+<!-- 弹窗 -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <div id="textBox"></div>
+    <div id="imgBox"></div>
+    <button class="closeBtn" onclick="closePop()">关闭</button>
+  </div>
+</div>
+
+<script>
+const popup = document.getElementById('popup');
+const textBox = document.getElementById('textBox');
+const imgBox = document.getElementById('imgBox');
+
+// 点【是】
+document.getElementById('yesBtn').onclick = function(){
+  imgBox.innerHTML = "";
+  textBox.innerHTML = `邀请，游走节奏的神，辅助界的万人迷，峡谷救世主，全局救赎神，最厉害最可爱的小饼，峡谷共渡今宵💗`;
+  popup.style.display = "flex";
+}
+
+// 点【否】弹出不允许表情包
+document.getElementById('noBtn').onclick = function(){
+  textBox.innerHTML = `<p>❌不允许拒绝！</p>`;
+  // 表情包，你可以替换成别的表情包链接
+  imgBox.innerHTML = `<img src="https://pic.616pic.com/ys_bnew_img/00/17/94/9cQZ8Y2cL0.jpg" alt="不许拒绝">`;
+  popup.style.display = "flex";
+}
+
+function closePop(){
+  popup.style.display = "none";
+}
+</script>
+</body>
+</html>
